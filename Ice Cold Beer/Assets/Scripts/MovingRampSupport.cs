@@ -4,29 +4,24 @@ using UnityEngine;
 
 public class MovingRampSupport : MonoBehaviour
 {
-    private float moveSpeed = 0.05f;
+    public float moveSpeed = 1.0f;
+
+    private float verticalInput;
+    private Rigidbody2D rigidbody;
+
     
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("this is a test.");
-        //transform.Translate(5, 0, 0);
-        
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    //Use fixed update for physics code, because we need to be
+    //careful about bow often we call expensive, hardware intensive, physics stuff 
+    private void FixedUpdate()
     {
-        
-        //If the player presses the up arrow, we move the square up.
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.Translate(0, moveSpeed, 0);
-        }
-        //If the player presses the down arrow, we move the square down.
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.Translate(0, -1 * moveSpeed, 0);
-        }
+        verticalInput = Input.GetAxis("Vertical");
+        rigidbody.velocity = new Vector2(0, verticalInput * moveSpeed);
     }
 }
