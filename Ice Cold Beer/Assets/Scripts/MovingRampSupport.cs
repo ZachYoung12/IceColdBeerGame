@@ -24,6 +24,10 @@ public class MovingRampSupport : MonoBehaviour
     //careful about bow often we call expensive, hardware intensive, physics stuff 
     private void FixedUpdate()
     {
-        rigidbody.velocity = new Vector2(0, verticalInput * moveSpeed);
+        if (!GameOver.IsGameOver)
+        {
+            rigidbody.velocity = new Vector2(0, verticalInput * moveSpeed);
+        }
+        
     }
 }
