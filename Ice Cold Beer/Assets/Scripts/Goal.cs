@@ -16,11 +16,12 @@ public class Goal : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Touched trigger");
-        if (collision.tag == "Player" && GameOver.IsGameOver)
+        if (collision.tag == "Player" && GameOver.IsGameOver == false)
         {
             winText.SetActive(true);
             audioSource.Play();
-            Debug.Log("The player has entered the goal");
+            Debug.Log("The player has hit the obstacle");
+            GameOver.IsGameOver = true;
         }
     }
 }

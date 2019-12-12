@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovingRampSupport : MonoBehaviour
 {
@@ -27,6 +28,14 @@ public class MovingRampSupport : MonoBehaviour
         if (!GameOver.IsGameOver)
         {
             rigidbody.velocity = new Vector2(0, verticalInput * moveSpeed);
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene("MainGame");
+                GameOver.IsGameOver = false;
+            }
         }
         
     }
