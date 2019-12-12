@@ -1,5 +1,8 @@
 # Hike&Hide
 
+## Link to Game
+- https://zachyoung12.itch.io/ball-crawl?secret=w0nbKqJ0vTDmoHf2ysHus6oIRg
+
 ## Overview
 - Hike&Hide is a singleplayer side-view platformer game for PC.
 
